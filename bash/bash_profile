@@ -1,0 +1,30 @@
+# colors
+orange=$(tput setaf 166);
+yellow=$(tput setaf 228);
+green=$(tput setaf 71);
+white=$(tput setaf 15);
+lightblue=$(tput setaf 014);
+greenglow=$(tput setaf 010);
+
+# font style
+bold=$(tput bold);
+reset=$(tput sgr0);
+
+# git
+inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
+
+
+#
+PS1="\[${bold}\]";
+if [ "$inside_git_repo" ]; then
+    PS1+="\[${white}\](";
+    PS1+="\[${lightblue}\]$(git status | head -n 1)";
+    PS1+="\[${white}\]) ";
+fi
+PS1+="[\[${orange}\]\u";
+PS1+="\[${white}\]@";
+PS1+="\[${yellow}\]\h ";
+PS1+="\[${green}\]\w";
+PS1+="\[${white}\]]$ \[${reset}\]";
+
+export PS1;

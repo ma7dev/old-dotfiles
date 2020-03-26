@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# repo path
+dir="`dirname \"$(readlink -f \"$0\")\"`"
+
+# run
+# 1 == 1:30 -- :30
+# 2 == :45 -- :15
+python3 "$dir/pomo_runner.py" $1

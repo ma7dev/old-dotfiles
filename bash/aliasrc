@@ -1,0 +1,2 @@
+alias vi3="vim ~/.config/i3/config"
+alias cd="updateGit cd"

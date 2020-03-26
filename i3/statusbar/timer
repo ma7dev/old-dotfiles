@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+case $BLOCK_BUTTON in
+    1) killall caffeine >/dev/null && notify-send "KILLED" ;;
+    2) pgrep -x dunst >/dev/null && notify-send "📢 Caffeine Status" "\- Shows Caffeine status 🌝, 🌚 if not started.
+- Left Click to kill
+- Mod+m to start" ;;
+esac
+
+function countdown(){
+   date1=$((`date +%s` + $1));
+   while [ "$date1" -ge `date +%s` ]; do
+     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+     sleep 0.1
+   done
+}
+function stopwatch(){
+  date1=`date +%s`;
+   while true; do
+    echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
+    sleep 0.1
+   done
+}
+
+countdown 60
+

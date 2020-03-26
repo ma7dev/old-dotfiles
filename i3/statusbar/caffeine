@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+case $BLOCK_BUTTON in
+    1) killall caffeine >/dev/null && notify-send "KILLED" ;;
+    2) pgrep -x dunst >/dev/null && notify-send "📢 Caffeine Status" "\- Shows Caffeine status 🌝, 🌚 if not started.
+- Left Click to kill
+- Mod+m to start" ;;
+esac
+
+
+runs=$(pgrep -x caffeine >/dev/null && echo "🌝" || echo "🌚")
+
+
+printf "%s \\n" "$runs"
+

@@ -1,0 +1,292 @@
+# new
+###---Settings---###
+# set super buttons
+set $mod                Mod4
+set $alt                Mod1
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+# set default programs
+set $terminal               terminator # terminal
+set $browser                google-chrome # browser
+# set wallpaper
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.png
+# set colors
+set $bg-color               #000000
+set $inactive-bg-color      #000000
+set $text-color             #f3f4f5
+set $inactive-text-color    #808080
+set $urgent-bg-color        #E53935
+# set font
+font pango:System San Francisco Display 8
+# workspace naming
+set $workspace1             "1"
+set $workspace2             "2"
+set $workspace3             "3"
+set $workspace4             "4"
+set $workspace5             "5"
+set $workspace6             "6"
+set $workspace7             "7"
+set $workspace8             "8"
+set $workspace9             "9"
+set $workspace10            "10"
+set $workspace11            "a:1"
+set $workspace12            "a:2"
+set $workspace13            "a:3"
+set $workspace14            "a:4"
+set $workspace15            "a:5"
+set $workspace16            "a:6"
+set $workspace17            "a:7"
+set $workspace18            "a:8"
+set $workspace19            "a:9"
+set $workspace20            "a:0"
+set $workspace21            "c:1"
+set $workspace22            "c:2"
+set $workspace23            "c:3"
+set $workspace24            "c:4"
+set $workspace25            "c:5"
+set $workspace26            "c:6"
+set $workspace27            "c:7"
+set $workspace28            "c:8"
+set $workspace29            "c:9"
+set $workspace30            "c:0"
+###---Launch---###
+# volume control
+exec_always --no-startup-id playerctl
+# fade workspace
+exec_always --no-startup-id compton -f
+# startup applications
+exec --no-startup-id nm-applet
+#exec --no-startup-id ~/.config/i3/scripts/launch.sh
+###---Customize---###
+#  workspaces
+#			            border			    background		    text			        indicator
+client.focused		    $bg-color		    $bg-color		    $text-color     	    #00ff00
+client.unfocused        $inactive-bg-color 	$inactive-bg-color 	$inactive-text-color 	#00ff00
+client.focused_inactive $inactive-bg-color 	$inactive-bg-color 	$inactive-text-color 	#00ff00
+client.urgent		    $urgent-bg-color    $urgent-bg-color   	$text-color          	#00ff00
+# bar
+bar {
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    # status_command i3status
+	position top
+	colors {
+		background $bg-color
+	    separator #757575
+		#                  border             background         text
+		focused_workspace  $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	}
+}
+###---Set Monitors---###
+set $monitor1               DP-0
+# one mintor
+#set $monitor2               DP-0
+#set $monitor3               DP-0
+#exec always --no-startup-id xrandr --output USB-C-0 --off --output HDMI-0 --off --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off --output DP-0 --primary --mode 2560x1080 --pos 1920x0 --rotate normal
+# two monitors
+#set $monitor2               HDMI-0
+#set $monitor3               HDMI-0
+#exec always --no-startup-id xrandr --output USB-C-0 --off --output HDMI-0 --mode 1920x1080 --pos 4480x0 --rotate normal --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off --output DP-0 --primary --mode 2560x1080 --pos 1920x0 --rotate normal
+# three monitors
+set $monitor2               HDMI-0
+set $monitor3               DP-3
+exec always --no-startup-id xrandr --output USB-C-0 --off --output HDMI-0 --mode 1920x1080 --pos 4480x0 --rotate normal --output DP-5 --off --output DP-4 --off --output DP-3 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output DP-1 --off --output DP-0 --primary --mode 2560x1080 --pos 1920x0 --rotate normal
+# move focused container to workspace
+bindsym $mod+1                  workspace $workspace1
+bindsym $mod+Shift+1            move container to workspace $workspace1
+bindsym $mod+2                  workspace $workspace2
+bindsym $mod+Shift+2            move container to workspace $workspace2
+bindsym $mod+3                  workspace $workspace3
+bindsym $mod+Shift+3            move container to workspace $workspace3
+bindsym $mod+4                  workspace $workspace4
+bindsym $mod+Shift+4            move container to workspace $workspace4
+bindsym $mod+5                  workspace $workspace5
+bindsym $mod+Shift+5            move container to workspace $workspace5
+bindsym $mod+6                  workspace $workspace6
+bindsym $mod+Shift+6            move container to workspace $workspace6
+bindsym $mod+7                  workspace $workspace7
+bindsym $mod+Shift+7            move container to workspace $workspace7
+bindsym $mod+8                  workspace $workspace8
+bindsym $mod+Shift+8            move container to workspace $workspace8
+bindsym $mod+9                  workspace $workspace9
+bindsym $mod+Shift+9            move container to workspace $workspace9
+bindsym $mod+0                  workspace $workspace10
+bindsym $mod+Shift+0            move container to workspace $workspace10
+
+
+bindsym $mod+$alt+1             workspace $workspace11
+bindsym $mod+Shift+$alt+1       move container to workspace $workspace11
+bindsym $mod+$alt+2             workspace $workspace12
+bindsym $mod+Shift+$alt+2       move container to workspace $workspace12
+bindsym $mod+$alt+3             workspace $workspace13
+bindsym $mod+Shift+$alt+3       move container to workspace $workspace13
+bindsym $mod+$alt+4             workspace $workspace14
+bindsym $mod+Shift+$alt+4       move container to workspace $workspace14
+bindsym $mod+$alt+5             workspace $workspace15
+bindsym $mod+Shift+$alt+5       move container to workspace $workspace15
+bindsym $mod+$alt+6             workspace $workspace16
+bindsym $mod+Shift+$alt+6       move container to workspace $workspace16
+bindsym $mod+$alt+7             workspace $workspace17
+bindsym $mod+Shift+$alt+7       move container to workspace $workspace17
+bindsym $mod+$alt+8             workspace $workspace18
+bindsym $mod+Shift+$alt+8       move container to workspace $workspace18
+bindsym $mod+$alt+9             workspace $workspace19
+bindsym $mod+Shift+$alt+9       move container to workspace $workspace19
+bindsym $mod+$alt+0             workspace $workspace20
+bindsym $mod+Shift+$alt+0       move container to workspace $workspace20
+
+bindsym $mod+Ctrl+1             workspace $workspace21
+bindsym $mod+Shift+Ctrl+1       move container to workspace $workspace21
+bindsym $mod+Ctrl+2             workspace $workspace22
+bindsym $mod+Shift+Ctrl+2       move container to workspace $workspace22
+bindsym $mod+Ctrl+3             workspace $workspace23
+bindsym $mod+Shift+Ctrl+3       move container to workspace $workspace23
+bindsym $mod+Ctrl+4             workspace $workspace24
+bindsym $mod+Shift+Ctrl+4       move container to workspace $workspace24
+bindsym $mod+Ctrl+5             workspace $workspace25
+bindsym $mod+Shift+Ctrl+5       move container to workspace $workspace25
+bindsym $mod+Ctrl+6             workspace $workspace26
+bindsym $mod+Shift+Ctrl+6       move container to workspace $workspace26
+bindsym $mod+Ctrl+7             workspace $workspace27
+bindsym $mod+Shift+Ctrl+7       move container to workspace $workspace27
+bindsym $mod+Ctrl+8             workspace $workspace28
+bindsym $mod+Shift+Ctrl+8       move container to workspace $workspace28
+bindsym $mod+Ctrl+9             workspace $workspace29
+bindsym $mod+Shift+Ctrl+9       move container to workspace $workspace29
+bindsym $mod+Ctrl+0             workspace $workspace30
+bindsym $mod+Shift+Ctrl+0       move container to workspace $workspace30
+# workspace mapping
+workspace $workspace1   output $monitor1
+workspace $workspace2   output $monitor1
+workspace $workspace3   output $monitor1
+workspace $workspace4   output $monitor1
+workspace $workspace5   output $monitor1
+workspace $workspace6   output $monitor1
+workspace $workspace7   output $monitor1
+workspace $workspace8   output $monitor1
+workspace $workspace9   output $monitor1
+workspace $workspace10  output $monitor1
+
+workspace $workspace11   output $monitor2
+workspace $workspace12   output $monitor2
+workspace $workspace13   output $monitor2
+workspace $workspace14   output $monitor2
+workspace $workspace15   output $monitor2
+workspace $workspace16   output $monitor2
+workspace $workspace17   output $monitor2
+workspace $workspace18   output $monitor2
+workspace $workspace19   output $monitor2
+workspace $workspace20   output $monitor2
+
+workspace $workspace21   output $monitor3
+workspace $workspace22   output $monitor3
+workspace $workspace23   output $monitor3
+workspace $workspace24   output $monitor3
+workspace $workspace25   output $monitor3
+workspace $workspace26   output $monitor3
+workspace $workspace27   output $monitor3
+workspace $workspace28   output $monitor3
+workspace $workspace29   output $monitor3
+workspace $workspace30   output $monitor3
+###---Bindings---###
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    bindsym j           resize shrink   width   10 px or 10 ppt
+    bindsym k           resize grow     height  10 px or 10 ppt
+    bindsym l           resize shrink   height  10 px or 10 ppt
+    bindsym semicolon   resize grow     width   10 px or 10 ppt
+
+    # same bindings, but for the arrow keys
+    bindsym Left    resize shrink   width   10 px or 10 ppt
+    bindsym Down    resize grow     height  10 px or 10 ppt
+    bindsym Up      resize shrink   height  10 px or 10 ppt
+    bindsym Right   resize grow     width   10 px or 10 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return  mode   "defaulte"
+    bindsym Escape  mode   "default"
+}
+# screenshot
+bindsym Print                   exec scrot '%Y-%m-%d_screenshot.jpg' -e 'mv $f ~/Pictures/'
+bindsym Control+Print           exec gnome-screenshot -i
+# terminal
+bindsym $mod+Return             exec $terminal
+# start caffeine
+bindsym $mod+m                  exec --no-startup-id caffeine-indicator
+# browser
+bindsym $mod+w                  exec $browser
+# quick note page window
+bindsym $mod+n                  exec --no-startup-id exec google-chrome --new-window https://www.notion.so/sudomze/d9a71bfd15054ef3a0f9ee9dceb7a34a?v=e3ca405ec8bc4fd8971d767a12340629
+# volume settings
+bindsym $mod+p                  exec pavucontrol
+# TODO: editing i3
+bindsym $mod+i                  exec $terminal -e vim
+# start pomodora
+bindsym $mod+Prior            exec start_pomo 1
+bindsym $mod+Next             exec start_pomo 2
+# cancel pomodora
+bindsym $mod+End              exec cancel_pomo 1
+# ranger
+bindsym $mod+r                  exec $terminal -e ranger
+# resize
+bindsym $mod+Shift+r            mode "resize"
+# start rofi (a program launcher)
+bindsym $mod+d                  exec rofi -show run -lines 10 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 10"
+# open system settings
+bindsym $mod+o                  exec --no-startup-id exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
+
+# focus the parent container
+bindsym $mod+a                  focus parent
+# change focus
+# move focused window
+bindsym $mod+j                  focus left
+bindsym $mod+Shift+j            move left
+bindsym $mod+k                  focus down
+bindsym $mod+Shift+k            move down
+bindsym $mod+l                  focus up
+bindsym $mod+Shift+l            move up
+bindsym $mod+semicolon          focus right
+bindsym $mod+Shift+semicolon    move right
+
+bindsym $mod+Left               focus left
+bindsym $mod+Shift+Left         move left
+bindsym $mod+Down               focus down
+bindsym $mod+Shift+Down         move down
+bindsym $mod+Up                 focus up
+bindsym $mod+Shift+Up           move up
+bindsym $mod+Right              focus right
+bindsym $mod+Shift+Right        move right
+# split in horizontal orientation
+bindsym $mod+h                  split h
+# split in vertical orientation
+bindsym $mod+v                  split v
+# enter fullscreen mode for the focused container
+bindsym $mod+f                  fullscreen toggle
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s                  layout stacking
+bindsym $mod+Shift+s            layout tabbed
+bindsym $mod+e                  layout toggle split
+# toggle i3bar (to focus on work)
+bindsym $mod+t                  exec --no-startup-id ~/.config/i3/scripts/toggle-i3bar.sh
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e            exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# change focus between tiling / floating windows
+bindsym $mod+space              focus mode_toggle
+# toggle tiling / floating
+bindsym $mod+Shift+space        floating toggle
+# pulse Audio controls
+bindsym XF86AudioRaiseVolume    exec --no-startup-id ~/.config/i3/scripts/audio.sh increase # increase sound volume
+bindsym XF86AudioLowerVolume    exec --no-startup-id ~/.config/i3/scripts/audio.sh decrease # decrease sound volume
+# media player controls
+bindsym XF86AudioPlay           exec playerctl play-pause
+bindsym XF86AudioNext           exec playerctl next
+bindsym XF86AudioPrev           exec playerctl previous
+# kill focused window
+bindsym $mod+Shift+q            kill
+# reload the configuration file
+bindsym $mod+Shift+c            reload
+# lock screen
+#bindsym $mod+Shift+x            exec ~/.config/i3/scripts/lock.sh
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+F2           restart
